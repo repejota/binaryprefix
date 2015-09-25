@@ -1,7 +1,6 @@
 package binaryprefix
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -25,5 +24,4 @@ func TestParseBinaryPrefixMB(t *testing.T) {
 	if b.GBytes() != 0.0009765625 {
 		t.Error("1MB are 0.0009765625 GBytes but got ", b.GBytes())
 	}
-	fmt.Println(b.YBytes())
 }
