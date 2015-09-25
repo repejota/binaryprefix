@@ -27,7 +27,7 @@ func getValues(size string) (string, float64, error) {
 }
 
 // BinaryPrefix ...
-type BinaryPrefix int
+type BinaryPrefix float64
 
 // ParseBinaryPrefix ...
 func ParseBinaryPrefix(size string) (b BinaryPrefix, err error) {
@@ -57,4 +57,49 @@ func ParseBinaryPrefix(size string) (b BinaryPrefix, err error) {
 		b = BinaryPrefix(quantity * YB * 1024 * 1024)
 	}
 	return b, nil
+}
+
+// Bytes get the number of bytes
+func (b BinaryPrefix) Bytes() float64 {
+	return float64(b)
+}
+
+// KBytes get the number of kylo bytes
+func (b BinaryPrefix) KBytes() float64 {
+	return float64(b) / 1024
+}
+
+// MBytes get the number of mega bytes
+func (b BinaryPrefix) MBytes() float64 {
+	return float64(b) / 1024 / 1024
+}
+
+// GBytes get the number of giga bytes
+func (b BinaryPrefix) GBytes() float64 {
+	return float64(b) / GB / 1024 / 1024
+}
+
+// TBytes get the number of tera bytes
+func (b BinaryPrefix) TBytes() float64 {
+	return float64(b) / TB / 1024 / 1024
+}
+
+// PBytes get the number of peta bytes
+func (b BinaryPrefix) PBytes() float64 {
+	return float64(b) / PB / 1024 / 1024
+}
+
+// EBytes get the number of exa bytes
+func (b BinaryPrefix) EBytes() float64 {
+	return float64(b) / EB / 1024 / 1024
+}
+
+// ZBytes get the number of zetta bytes
+func (b BinaryPrefix) ZBytes() float64 {
+	return float64(b) / ZB / 1024 / 1024
+}
+
+// YBytes get the number of yotta bytes
+func (b BinaryPrefix) YBytes() float64 {
+	return float64(b) / YB / 1024 / 1024
 }
