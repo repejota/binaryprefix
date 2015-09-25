@@ -8,14 +8,15 @@ import (
 	"strconv"
 )
 
+// Prefixes
 const (
-	_          = iota // ignore first value by assigning to blank identifier
-	GB float64 = 1 << (10 * iota)
-	TB
-	PB
-	EB
-	ZB
-	YB
+	_          = iota             // ignore first value by assigning to blank identifier
+	GB float64 = 1 << (10 * iota) // Gigabytes
+	TB                            // Terabytes
+	PB                            // Petabytes
+	EB                            // Exabytes
+	ZB                            // Zettabytes
+	YB                            // Yottabytes
 )
 
 func getValues(size string) (string, float64, error) {
@@ -25,8 +26,10 @@ func getValues(size string) (string, float64, error) {
 	return d, f, err
 }
 
+// BinaryPrefix ...
 type BinaryPrefix int
 
+// ParseBinaryPrefix ...
 func ParseBinaryPrefix(size string) (b BinaryPrefix, err error) {
 	format, quantity, err := getValues(size)
 	if err != nil {

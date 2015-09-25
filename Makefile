@@ -1,6 +1,14 @@
-build:
+build: lint
 	go build .
 
 test:
-	go test .
+	go test -v ./...
 
+cover:
+	go test -cover
+
+lint:
+	golint .
+
+dev-deps:
+	go get -u github.com/golang/lint/golint
