@@ -21,3 +21,8 @@ Getting the lint report, just run:
 ```
 go lint .
 ```
+
+## Coverage
+
+* Develop [![Coverage Status Develop](https://coveralls.io/repos/repejota/binary-prefix/badge.svg?branch=develop&service=github)](https://coveralls.io/github/repejota/binary-prefix?branch=develop)
+* Master [![Coverage Status Master](https://coveralls.io/repos/repejota/binary-prefix/badge.svg?branch=master&service=github)](https://coveralls.io/github/repejota/binary-prefix?branch=master)
