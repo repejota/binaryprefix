@@ -8,5 +8,5 @@ before_install:
   - go get github.com/mattn/goveralls
   - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
 script:
-  - go get github.com/repejota/binary-prefix && go test -v ./...
+  - go get github.com/repejota/binaryprefix && go test -v ./...
   - $HOME/gopath/bin/goveralls -service=travis-ci
