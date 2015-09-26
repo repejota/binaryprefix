@@ -21,6 +21,9 @@ func TestParseBinaryPrefixMB(t *testing.T) {
 	if b.GBytes() != 0.0009765625 {
 		t.Error("1MB are 0.0009765625 GBytes but got ", b.GBytes())
 	}
+	if b.TBytes() != 9.5367431640625e-07 {
+		t.Error("1MB are 0.0009765625 TBytes but got ", b.TBytes())
+	}
 }
 
 func TestParseBinaryPrefixGB(t *testing.T) {
