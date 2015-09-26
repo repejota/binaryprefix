@@ -38,68 +38,68 @@ func ParseBinaryPrefix(size string) (b BinaryPrefix, err error) {
 	}
 	switch format {
 	case "B":
-		b = BinaryPrefix(quantity)
+		b = BinaryPrefix(quantity / 1024 / 1024)
 	case "KB":
-		b = BinaryPrefix(quantity * 1024)
+		b = BinaryPrefix(quantity / 1024)
 	case "MB":
-		b = BinaryPrefix(quantity * 1024 * 1024)
+		b = BinaryPrefix(quantity)
 	case "GB":
-		b = BinaryPrefix(quantity * GB * 1024 * 1024)
+		b = BinaryPrefix(quantity * GB)
 	case "TB":
-		b = BinaryPrefix(quantity * TB * 1024 * 1024)
+		b = BinaryPrefix(quantity * TB)
 	case "PB":
-		b = BinaryPrefix(quantity * PB * 1024 * 1024)
+		b = BinaryPrefix(quantity * PB)
 	case "EB":
-		b = BinaryPrefix(quantity * EB * 1024 * 1024)
+		b = BinaryPrefix(quantity * EB)
 	case "ZB":
-		b = BinaryPrefix(quantity * ZB * 1024 * 1024)
+		b = BinaryPrefix(quantity * ZB)
 	case "YB":
-		b = BinaryPrefix(quantity * YB * 1024 * 1024)
+		b = BinaryPrefix(quantity * YB)
 	}
 	return b, nil
 }
 
 // Bytes get the number of bytes
 func (b BinaryPrefix) Bytes() float64 {
-	return float64(b)
+	return float64(b) * 1024 * 1024
 }
 
 // KBytes get the number of kylo bytes
 func (b BinaryPrefix) KBytes() float64 {
-	return float64(b) / 1024
+	return float64(b) * 1024
 }
 
 // MBytes get the number of mega bytes
 func (b BinaryPrefix) MBytes() float64 {
-	return float64(b) / 1024 / 1024
+	return float64(b)
 }
 
 // GBytes get the number of giga bytes
 func (b BinaryPrefix) GBytes() float64 {
-	return float64(b) / GB / 1024 / 1024
+	return float64(b) / GB
 }
 
 // TBytes get the number of tera bytes
 func (b BinaryPrefix) TBytes() float64 {
-	return float64(b) / TB / 1024 / 1024
+	return float64(b) / TB
 }
 
 // PBytes get the number of peta bytes
 func (b BinaryPrefix) PBytes() float64 {
-	return float64(b) / PB / 1024 / 1024
+	return float64(b) / PB
 }
 
 // EBytes get the number of exa bytes
 func (b BinaryPrefix) EBytes() float64 {
-	return float64(b) / EB / 1024 / 1024
+	return float64(b) / EB
 }
 
 // ZBytes get the number of zetta bytes
 func (b BinaryPrefix) ZBytes() float64 {
-	return float64(b) / ZB / 1024 / 1024
+	return float64(b) / ZB
 }
 
 // YBytes get the number of yotta bytes
 func (b BinaryPrefix) YBytes() float64 {
-	return float64(b) / YB / 1024 / 1024
+	return float64(b) / YB
 }

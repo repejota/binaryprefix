@@ -9,9 +9,6 @@ func TestParseBinaryPrefixMB(t *testing.T) {
 	if err != nil {
 		t.Error("Error parsing 1MB")
 	}
-	if int(b) != 1048576 {
-		t.Error("1MB are 1048576 Bytes but got ", int(b))
-	}
 	if b.Bytes() != 1048576 {
 		t.Error("1MB are 1048576 Bytes but got ", b.Bytes())
 	}
@@ -31,8 +28,8 @@ func TestParseBinaryPrefixGB(t *testing.T) {
 	if err != nil {
 		t.Error("Error parsing 4GB")
 	}
-	if int(b) != 4294967296 {
-		t.Error("4GB are 4294967296 Bytes but got ", int(b))
+	if int(b) != 4096 {
+		t.Error("4GB are 4096 Bytes but got ", int(b))
 	}
 }
 
@@ -41,7 +38,47 @@ func TestParseBinaryPrefixTB(t *testing.T) {
 	if err != nil {
 		t.Error("Error parsing 3TB")
 	}
-	if int(b) != 3298534883328 {
-		t.Error("3TB are 3298534883328 Bytes but got ", int(b))
+	if int(b) != 3145728 {
+		t.Error("3TB are 3145728 Bytes but got ", int(b))
+	}
+}
+
+func TestParseBinaryPrefixPB(t *testing.T) {
+	b, err := ParseBinaryPrefix("1PB")
+	if err != nil {
+		t.Error("Error parsing 1PB")
+	}
+	if int(b) != 1073741824 {
+		t.Error("1PB are 1073741824 Bytes but got ", int(b))
+	}
+}
+
+func TestParseBinaryPrefixEB(t *testing.T) {
+	b, err := ParseBinaryPrefix("1EB")
+	if err != nil {
+		t.Error("Error parsing 1EB")
+	}
+	if int(b) != 1099511627776 {
+		t.Error("1EB are 1099511627776 Bytes but got ", int(b))
+	}
+}
+
+func TestParseBinaryPrefixZB(t *testing.T) {
+	b, err := ParseBinaryPrefix("1ZB")
+	if err != nil {
+		t.Error("Error parsing 1ZB")
+	}
+	if int(b) != 1125899906842624 {
+		t.Error("1ZB are 1125899906842624 Bytes but got ", int(b))
+	}
+}
+
+func TestParseBinaryPrefixYB(t *testing.T) {
+	b, err := ParseBinaryPrefix("0.00001YB")
+	if err != nil {
+		t.Error("Error parsing 0.1YB")
+	}
+	if int(b) != 11529215046068 {
+		t.Error("0.1YB are 11529215046068 Bytes but got ", int(b))
 	}
 }
